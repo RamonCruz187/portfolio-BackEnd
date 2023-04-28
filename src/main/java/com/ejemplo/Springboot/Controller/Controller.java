@@ -48,7 +48,7 @@ public class Controller {
     private ITecnologiasService tecServ;
     
     
-    //-------------------------------------------------
+    //-----------------Login y persona--------------------------------
     
     @PostMapping ("/autenticacion/login")
     public Persona loginPersona(@RequestBody Persona pers){
@@ -79,7 +79,7 @@ public class Controller {
     }
     
     
-   //--------------------------------------------------------
+   //------------------Experiencia--------------------------------------
     
     @GetMapping ("/ver/experiencias")
     @ResponseBody
@@ -102,7 +102,7 @@ public class Controller {
     expServ.borrarExperiencia(id);
     }
   
-    //---------------------------------------------------
+    //-------------------Educacion--------------------------------
     
     @GetMapping ("/ver/educacion")
     @ResponseBody
@@ -125,7 +125,7 @@ public class Controller {
     eduServ.borrarEducacion(id);
     }
     
-    //----------------------------------------------------
+    //------------------Proyectos----------------------------------
     
     @GetMapping ("/ver/proyectos")
     @ResponseBody
@@ -143,7 +143,12 @@ public class Controller {
     proServ.borrarProyecto(id);
     }
     
-    //----------------------------------------------------
+    @PutMapping ("editar/proyecto/{id}")
+    public void editarProyecto (@RequestBody Proyectos pro){
+        proServ.crearProyecto(pro);
+    }
+    
+    //----------------Redes------------------------------------
     
     @GetMapping ("/ver/redes")
     @ResponseBody
@@ -161,7 +166,7 @@ public class Controller {
     redServ.borrarRed(id);
     }
     
-    //-------------------------------------------
+    //----------------Tecnologias---------------------------
     
     @GetMapping ("/ver/tecnologias")
     @ResponseBody
@@ -177,5 +182,10 @@ public class Controller {
     @DeleteMapping ("/borrar_tecnologia/{id}")
     public void borrarTecnologia (@PathVariable Long id){
     tecServ.borrarTecnologia(id);
+    }
+    
+    @PutMapping ("editar/tecnologia/{id}")
+    public void editarTecnologia (@RequestBody Tecnologias tec){
+        tecServ.crearTecnologia(tec);
     }
 }
