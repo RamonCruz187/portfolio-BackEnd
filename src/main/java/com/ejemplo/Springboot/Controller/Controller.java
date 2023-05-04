@@ -166,6 +166,11 @@ public class Controller {
     redServ.borrarRed(id);
     }
     
+    @PutMapping ("editar/red/{id}")
+    public void editarRed (@RequestBody Redes red){
+        redServ.crearRed(red);
+    }
+    
     //----------------Tecnologias---------------------------
     
     @GetMapping ("/ver/tecnologias")
