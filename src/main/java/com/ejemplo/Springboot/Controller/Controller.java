@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin 
+@CrossOrigin (origins="https://frontend-portfolio-2cd20.web.app")
 public class Controller {
     
     @Autowired
